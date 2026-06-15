@@ -1,0 +1,12 @@
+node_modules
+dist
+dist-ssr
+*.local
+.DS_Store
+.vite
+*.log
+.env
+.netlify
+
+# Generated quiz result PDFs (downloaded by participants)
+Izumi-Quiz-Results_*.pdf

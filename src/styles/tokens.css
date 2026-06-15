@@ -1,0 +1,37 @@
+:root {
+  /* Brand — from the document family */
+  --accent: #8B2E2E;          /* Crimson — headings, primary buttons */
+  --accent-soft: #F4E8E8;     /* Light crimson tint */
+  --accent-deep: #6B2222;     /* Deeper crimson for hover/press */
+
+  /* Surfaces — cream foundations */
+  --cream: #FBF6EE;           /* Page background */
+  --cream-warm: #FAF6EE;      /* Card surfaces, alternate rows */
+  --cream-deep: #F3EBD8;      /* Pressed surfaces */
+  --header-bg: #F0E5D5;       /* Section headers, card headers */
+
+  /* Rules and accents */
+  --honey-tan: #C9A66B;       /* Borders, dividers */
+  --honey-tan-soft: #E8D6A8;  /* Soft honey accent */
+  --amber: #B8845B;           /* Secondary accents */
+  --amber-soft: #F2E7CD;      /* Soft amber background */
+
+  /* Anime-cinematic accents — for atmosphere, gradients, glows */
+  --dawn-rose: #E8B4A8;       /* Soft rose for dawn-like gradients */
+  --dusk-gold: #DDB877;       /* Warm gold for sunset highlights */
+  --sky-pale: #E5DDD0;        /* Pale warm sky for backdrops */
+  --shadow-warm: rgba(139, 46, 46, 0.08);  /* Warm crimson shadow */
+
+  /* Text */
+  --text: #1A1A1A;
+  --text-muted: #4A4A4A;
+  --text-soft: #7A6F5C;
+
+  /* Feedback states */
+  --correct: #2A6B3B;
+  --correct-soft: #DDEFE0;
+  --correct-glow: rgba(42, 107, 59, 0.15);
+  --incorrect: #B33A3A;
+  --incorrect-soft: #F2DDDD;
+  --incorrect-glow: rgba(179, 58, 58, 0.15);
+}
