@@ -7,6 +7,8 @@ export interface PersistedState {
   answers: ParticipantAnswer[];
   currentQuestionIndex: number;
   completed: boolean;
+  /** Per-attempt seed used to reproduce the option shuffle on refresh. */
+  seed: number | null;
 }
 
 const emptyState: PersistedState = {
@@ -14,6 +16,7 @@ const emptyState: PersistedState = {
   answers: [],
   currentQuestionIndex: 0,
   completed: false,
+  seed: null,
 };
 
 export function loadState(): PersistedState {
@@ -29,6 +32,7 @@ export function loadState(): PersistedState {
           ? parsed.currentQuestionIndex
           : 0,
       completed: Boolean(parsed.completed),
+      seed: typeof parsed.seed === 'number' ? parsed.seed : null,
     };
   } catch {
     return { ...emptyState };

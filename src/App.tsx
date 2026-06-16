@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Layout } from './components/Layout';
 import { LandingPage } from './components/LandingPage';
 import { ParticipantForm } from './components/ParticipantForm';
@@ -12,6 +12,7 @@ import {
   saveState,
   type PersistedState,
 } from './lib/storage';
+import { buildQuizSet, makeSeed } from './lib/shuffle';
 
 export default function App() {
   const [participant, setParticipant] = useState<PersistedState['participant']>(
@@ -20,8 +21,16 @@ export default function App() {
   const [answers, setAnswers] = useState<ParticipantAnswer[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [completed, setCompleted] = useState(false);
+  const [seed, setSeed] = useState<number | null>(null);
   const [stage, setStage] = useState<QuizStage>({ stage: 'landing' });
   const [hydrated, setHydrated] = useState(false);
+
+  // The per-attempt quiz set, with each question's options shuffled. Derived
+  // deterministically from the seed so a refresh reproduces the same order.
+  const questions = useMemo(
+    () => (seed == null ? quizQuestions : buildQuizSet(quizQuestions, seed)),
+    [seed],
+  );
 
   // Boot: restore in-progress / completed state from localStorage.
   useEffect(() => {
@@ -30,6 +39,9 @@ export default function App() {
     setAnswers(s.answers);
     setCurrentIndex(s.currentQuestionIndex);
     setCompleted(s.completed);
+    // Restore the attempt's seed; mint one if an older in-progress state
+    // predates this feature so the quiz still renders consistently.
+    setSeed(s.seed ?? (s.participant ? makeSeed() : null));
 
     if (s.completed && s.participant) {
       setStage({ stage: 'results' });
@@ -49,8 +61,9 @@ export default function App() {
       answers,
       currentQuestionIndex: currentIndex,
       completed,
+      seed,
     });
-  }, [hydrated, participant, answers, currentIndex, completed]);
+  }, [hydrated, participant, answers, currentIndex, completed, seed]);
 
   const handleBegin = () => setStage({ stage: 'participant-form' });
 
@@ -59,6 +72,7 @@ export default function App() {
     setAnswers([]);
     setCurrentIndex(0);
     setCompleted(false);
+    setSeed(makeSeed()); // fresh option shuffle for this attempt
     setStage({ stage: 'question', questionIndex: 0 });
   };
 
@@ -70,7 +84,7 @@ export default function App() {
   };
 
   const handleNext = () => {
-    if (currentIndex < quizQuestions.length - 1) {
+    if (currentIndex < questions.length - 1) {
       const next = currentIndex + 1;
       setCurrentIndex(next);
       setStage({ stage: 'question', questionIndex: next });
@@ -86,6 +100,7 @@ export default function App() {
     setAnswers([]);
     setCurrentIndex(0);
     setCompleted(false);
+    setSeed(null);
     setStage({ stage: 'landing' });
   };
 
@@ -104,7 +119,7 @@ export default function App() {
 
       {stage.stage === 'question' && (
         <QuizContainer
-          questions={quizQuestions}
+          questions={questions}
           currentIndex={currentIndex}
           answers={answers}
           onAnswer={handleAnswer}
@@ -115,7 +130,7 @@ export default function App() {
       {stage.stage === 'results' && participant && (
         <ResultsPage
           participant={participant}
-          questions={quizQuestions}
+          questions={questions}
           answers={answers}
           onRetake={handleRetake}
         />
