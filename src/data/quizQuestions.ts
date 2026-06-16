@@ -182,7 +182,7 @@ export const quizQuestions: QuizQuestion[] = [
     ],
     correctAnswer: 'A',
     explanation:
-      "Fire and gas leaks are rare here, and the judgment that matters is small versus big. A small, contained fire is the one you can handle — Izumi is a timber Machiya, and a fire left to grow can take the whole building in minutes, so stopping it early genuinely saves the house. The order is: raise the alarm first (shout 火事! so others respond and 119 is called), then, because the fire is still small and an extinguisher is right there, put it out with the PASS technique while keeping a clear escape route behind you. Once it's out, tell the Japan Team what happened so they can follow up. The rule that overrides everything: the instant the fire spreads beyond the stovetop, climbs the wall, or the room fills with smoke, it is no longer yours to fight — get everyone out, call 119, and report to the Japan Team, who coordinate the response from there. Handle the small ones; escalate the big ones.",
+      "Fire is rare here, but if it starts the judgment that matters is small versus big. A small, contained fire is the one you can handle — Izumi is a timber Machiya, and a fire left to grow can take the whole building in minutes, so stopping it early genuinely saves the house. The order is: raise the alarm first (shout 火事! so others respond and 119 is called), then, because the fire is still small and an extinguisher is right there, put it out with the PASS technique while keeping a clear escape route behind you. Once it's out, tell the Japan Team what happened so they can follow up. The rule that overrides everything: the instant the fire spreads beyond the stovetop, climbs the wall, or the room fills with smoke, it is no longer yours to fight — get everyone out, call 119, and report to the Japan Team, who coordinate the response from there. Handle the small ones; escalate the big ones.",
     whyOthersWrong: {
       B: "Evacuating, calling 119, and reporting to the Japan Team is exactly right for a bigger fire, or whenever you're in any doubt — but 'never, whatever its size' means standing by while a fire you could have stopped in ten seconds grows to take a wooden house. With help present and an extinguisher in reach, a small contained fire should be put out.",
       C: "Fighting it without first shouting means nobody calls 119 and nobody knows to help or get clear. Raising the alarm is always the first move — even when you fully intend to fight the fire yourself.",
@@ -364,18 +364,18 @@ export const quizQuestions: QuizQuestion[] = [
     question:
       "You walk into the kitchen one dim morning and catch a faint but unmistakable smell of gas. No one else is around. What do you do?",
     options: [
-      { letter: 'A', text: "Without touching any switch, open the windows and doors, turn the gas off at the stove tap, and report it to the Japan Team; if it's strong or won't clear, get out and call the gas line." },
-      { letter: 'B', text: "Switch off the kitchen light and unplug the nearby appliances first, to kill any ignition source, then open the windows to ventilate the room." },
+      { letter: 'A', text: "Touch no switches or appliances; open the windows and doors to ventilate, leave the house, and call the gas line (0120-594-594) and the Japan Team from outside." },
+      { letter: 'B', text: "Switch off the kitchen light and unplug the nearby appliances first, to remove any ignition source, then open the windows to ventilate." },
       { letter: 'C', text: "Open a window and carry on with your morning — a faint smell will clear on its own and isn't worth troubling the Japan Team over." },
-      { letter: 'D', text: "Keep the windows shut to stop it spreading, and check each burner and joint so you can tell the Japan Team exactly where it's leaking." },
+      { letter: 'D', text: "Close the gas tap and check the burners to find the source, staying to air the room out before the others wake." },
     ],
     correctAnswer: 'A',
     explanation:
-      "A faint gas smell is a small occurrence you can handle — and report. Touch no electrical switch (even turning one off can spark, and a spark is what ignites gas); open windows and doors to clear the air; and turn off the supply at the stove tap, which is a manual valve and safe to touch. Then tell the Japan Team, who decide whether the gas company needs to check it. The tier that matters: a faint smell that clears, you ventilate, shut off, and report; a strong or growing smell is a bigger case — get out and call the gas emergency line (0120-594-594) from outside, then the Japan Team. Never investigate with a flame, and never operate electrics.",
+      "With gas, caution beats cleverness — even a faint smell. Any electrical switch or appliance, turned on OR off, can throw a tiny spark, and a spark is what ignites accumulated gas. So touch nothing electrical and don't linger to investigate: open the windows and doors as you go, leave the house, and from outside call the gas emergency line (0120-594-594) and report it to the Japan Team, who take it from there. Unlike a small fire you can safely put out, a gas leak is never yours to 'handle' from inside — the safe move is always to ventilate, get out, and escalate.",
     whyOthersWrong: {
-      B: "Operating a switch to turn it off can spark just as easily as turning it on, and unplugging does the same. Touch no electrics at all — just ventilate and shut the gas off at the tap.",
-      C: "Carrying on without reporting it is how a small leak grows into a big one unnoticed. Even a faint smell gets ventilated, shut off at the tap, and reported to the Japan Team.",
-      D: "Keeping the windows shut lets gas build up, and hunting joint-by-joint keeps you in the room breathing it. Ventilate first; if you can't stop it at the tap, get out and let the gas line and the Japan Team take it from there.",
+      B: "A switch sparks just as easily turning off as on, and unplugging does the same — it's the single most common cause of gas explosions in homes. Touch no electrics at all.",
+      C: "Carrying on without reporting is how a leak you assumed was nothing turns dangerous unnoticed. Every gas smell, however faint, gets ventilated and reported to the Japan Team.",
+      D: "Staying to investigate keeps you in a gas-filled room beside possible ignition sources. Don't linger over taps and burners — ventilate, get out, and let the gas line and the Japan Team take over.",
     },
     source: 'Emergency & Safety Guide',
   },
